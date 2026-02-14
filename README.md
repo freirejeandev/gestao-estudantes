@@ -246,6 +246,3 @@ Tópicos abordados:
 4. Faça login com as credenciais fornecidas
 5. Teste as operações CRUD de estudantes
 
-## 📄 Licença
-
-Este projeto foi desenvolvido como parte de um desafio técnico.
