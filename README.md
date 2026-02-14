@@ -2,7 +2,17 @@
 
 Sistema completo para gerenciamento de estudantes com autenticação JWT, desenvolvido com .NET 8 (back-end) e React (front-end).
 
-## 📋 Pré-requisitos
+## � Documentação Completa
+
+Para entender melhor as decisões arquiteturais e de design deste projeto, consulte:
+
+- **[📐 DESIGN_DECISIONS.md](./DESIGN_DECISIONS.md)** - Decisões detalhadas de arquitetura e design com justificativas e trade-offs
+- **[🏗️ ARCHITECTURE.md](./ARCHITECTURE.md)** - Visão geral da arquitetura, padrões de código e considerações de segurança
+- **[🚀 DEPLOY.md](./DEPLOY.md)** - Guia de deploy e configuração para produção
+- **[🧪 TESTING.md](./TESTING.md)** - Estratégias de teste e cobertura
+- **[📁 PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)** - Estrutura detalhada do projeto
+
+## �📋 Pré-requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Node.js](https://nodejs.org/) (versão 18 ou superior)
@@ -193,27 +203,34 @@ A API está configurada para aceitar requisições das seguintes origens:
 
 ## 🏗️ Decisões de Arquitetura
 
-### Back-end
+Este projeto foi desenvolvido com atenção especial às decisões de arquitetura e design. Algumas decisões principais:
 
-1. **Entity Framework Core In-Memory Database**: Escolhido para simplificar o setup e permitir testes rápidos sem necessidade de um banco de dados externo.
+### Backend
+- **Arquitetura em Camadas**: Separação clara entre Controllers, Models, Data e DTOs
+- **Entity Framework Core In-Memory**: Simples setup, ideal para demonstração
+- **JWT Stateless Authentication**: Escalável e padrão da indústria
+- **Async/Await**: Todas operações I/O são assíncronas para melhor performance
+- **API RESTful**: Seguindo princípios REST com recursos bem definidos
 
-2. **JWT Authentication**: Implementado para fornecer uma autenticação stateless e escalável.
+### Frontend
+- **Single Page Application (SPA)**: React para experiência fluida
+- **Material Design (MUI)**: UI moderna, responsiva e acessível
+- **Context API**: Gerenciamento de estado simples e efetivo
+- **Axios com Interceptors**: Token JWT automático em todas requisições
+- **Protected Routes**: Segurança no frontend com rotas protegidas
 
-3. **Repository Pattern através do DbContext**: O EF Core já implementa o padrão Repository, então não há necessidade de uma camada adicional neste projeto.
+### Justificativas e Trade-offs
 
-4. **DTOs**: Utilizados para separar os modelos de domínio das requisições/respostas da API.
+Para entender o **porquê** de cada decisão, os **trade-offs** considerados e **alternativas avaliadas**, consulte:
 
-### Front-end
+👉 **[DESIGN_DECISIONS.md](./DESIGN_DECISIONS.md)** - Documento detalhado com todas as decisões arquiteturais
 
-1. **Context API**: Escolhida para gerenciamento de estado de autenticação, sendo mais simples que Redux para este escopo.
-
-2. **Axios com Interceptors**: Facilita a adição automática de tokens JWT e tratamento de erros de autenticação.
-
-3. **Material-UI**: Proporciona componentes prontos e consistentes, acelerando o desenvolvimento.
-
-4. **Vite**: Build tool moderna e rápida, substituindo o Create React App.
-
-5. **Protected Routes**: Implementadas para garantir que apenas usuários autenticados acessem as funcionalidades principais.
+Tópicos abordados:
+- ✅ Decisões Arquiteturais (Cliente-Servidor, API REST, JWT, etc)
+- 🎨 Decisões de Design (SPA, Material-UI, Modais, Feedback Visual)
+- 💻 Decisões Técnicas (EF Core, Async/Await, Axios, Vite)
+- ⚖️ Trade-offs e Justificativas (comparações detalhadas)
+- 📚 Lições Aprendidas (Do's e Don'ts)
 
 ## 📝 Observações
 
